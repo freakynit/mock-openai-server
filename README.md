@@ -22,11 +22,11 @@
 2. Only `aac` output format is NOT supported in `/audio/speech` endpoint. Rest all ARE supported. `ffmpeg` related, nothing related to code.
 
 ### Installation
-1. Clone and do `npm i`
+1. Clone the repo (`git clone https://github.com/freakynit/mock-openai-server.git`), `cd` into it, and do `npm i`
 2. Install ffmpeg binary separately if audio endpoints are not working (should not be needed though).
 3. Start server: `node src/server.js` or `npm run server`
 4. Set api base (and optionally api key) in your client apps or openai SDK's to: `http://localhost:8080/v1`
-5Checkout `src/examples.js` for example usages of all supported endpoints (start looking from bottom of the file).
+5. Checkout `src/examples.js` for example usages of all supported endpoints (start looking from bottom of the file).
 
 ### Understanding config.yaml
 This configuration file defines server settings, model configurations, and supported functionalities for text, image, audio, and embeddings.
