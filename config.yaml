@@ -1,0 +1,212 @@
+publicFilesDirectory: "public"
+server:
+  host: localhost
+  port: 8080
+apiKeys:
+  - "key-1"
+  - "key-2"
+  - "key-3"
+organizationName: "my sample org"
+responseDelay:
+  enable: false
+  minDelayMs: 1000
+  maxDelayMs: 2000
+modelConfigs:
+  chat:
+    models:
+      chatgpt-4o-latest:
+        maxTokens: 4096
+      model-2:
+        maxTokens: 8192
+      gpt-4o:
+        maxTokens: 4096
+    sampleResponses:
+      - "This is a mock response for text input. How can I help you further?"
+      - "Thank you for your input! What would you like to know or do next?"
+      - "Here’s a starting point for your idea. Let me know if you’d like me to elaborate or refine it further!"
+      - "I’ve drafted some code based on your request. Let me know if you need additional functionality or explanation."
+      - "Here’s a simplified explanation. Would you like a more detailed breakdown or examples?"
+      - "Thanks for reaching out! How else can I assist you today?"
+      - "Here’s a possible solution to your issue. Let me know if it resolves your problem or if you need further help."
+      - "Interesting topic! Would you like to dive deeper into this or explore something related?"
+    sampleResponsesForJsonOutput:
+      - {"userId":12345,"username":"john_doe","email":"john.doe@example.com","isActive":true,"roles":["admin","editor"]}
+      - {"productId":"A1B2C3","name":"Wireless Earbuds","price":59.99,"inStock":true,"specifications":{"batteryLife":"8 hours","connectivity":"Bluetooth 5.0","waterResistance":"IPX4"},"tags":["electronics","audio","wireless"]}
+      - {"location":{"city":"San Francisco","state":"CA","country":"USA"},"temperature":{"current":58.4,"high":65,"low":52.3},"conditions":"Partly Cloudy","forecast":[{"day":"Monday","high":64,"low":51,"conditions":"Sunny"},{"day":"Tuesday","high":62,"low":50,"conditions":"Cloudy"},{"day":"Wednesday","high":60,"low":48,"conditions":"Rain"}]}
+      - {"orderId":"ORD123456","date":"2025-01-20","customer":{"name":"Jane Smith","email":"jane.smith@example.com"},"items":[{"productId":"P123","name":"Laptop","quantity":1,"price":999.99},{"productId":"P124","name":"Mouse","quantity":2,"price":25.99}],"total":1051.97,"status":"Shipped"}
+      - {"postId":"987654","author":{"userId":"34567","username":"tech_guru","profileImage":"https://example.com/profile/34567.jpg"},"content":"Exploring the latest trends in AI! 🚀","timestamp":"2025-01-20T12:34:56Z","likes":245,"comments":[{"userId":"78910","username":"ai_fan","comment":"This is amazing!","timestamp":"2025-01-20T12:45:00Z"},{"userId":"11223","username":"dev_guy","comment":"Can't wait to see what's next.","timestamp":"2025-01-20T12:50:30Z"}]}
+    tools:
+      functions:
+        - functionName: "calculate_sum"
+          arguments: { "a": 10, "b": 20 }
+          regexToMatchAgainstPrompt: |
+            .*sum.*
+        - functionName: "fetch_weather"
+          arguments: { "location": "Boston, MA", "unit": "imperial" }
+          regexToMatchAgainstPrompt: |
+            .*weather.*
+        - functionName: "reverse_string"
+          arguments: { "input_string": "This is sample string" }
+          regexToMatchAgainstPrompt: |
+            .*reverses.*
+  vlm:
+    models:
+      dall-e-2:
+        maxTokens: 8192
+      dall-e-3:
+        maxTokens: 8192
+    sampleResponses:
+      - "The image shows a serene countryside landscape with rolling green hills, scattered trees, and a clear blue sky. A small wooden cabin is nestled in the center, with smoke gently rising from its chimney, suggesting a cozy and tranquil environment"
+      - "This image captures a bustling city street at night, illuminated by bright neon signs and streetlights. Crowds of people are walking along the sidewalks, and a few cars are visible in the foreground, their headlights reflecting off the wet pavement"
+      - "The image appears to depict a historical battlefield scene, with soldiers in traditional uniforms marching across an open plain. Smoke rises in the background, likely from cannon fire, and the sky is overcast, adding a dramatic tone"
+      - "The image features a vibrant bouquet of flowers in a glass vase placed on a wooden table. The flowers are a mix of roses, tulips, and daisies, in shades of red, yellow, and white. Behind the vase, the background is softly blurred, drawing attention to the arrangement"
+      - "This image portrays a lone figure standing on a cliff edge, silhouetted against a vivid sunset. The sky is painted with streaks of orange, pink, and purple, blending beautifully into the horizon. The scene evokes a sense of solitude and reflection"
+      - "The image includes several everyday objects arranged on a desk: a laptop with the screen turned on, a cup of coffee steaming nearby, a notebook with handwritten notes, and a pair of glasses resting on top. This seems like a workspace setting"
+      - "This image depicts a tropical beach scene with golden sand, turquoise waves gently rolling onto the shore, and tall palm trees swaying in the breeze. A hammock is tied between two trees, and a small boat is anchored a short distance away in the calm water. It looks like an ideal vacation spot"
+      - "The painting in the image showcases a surreal landscape where mountains blend into the clouds, and the colors shift from earthy browns to ethereal blues and purples. The brushwork is textured and dynamic, adding depth and movement to the composition"
+    sampleResponsesForJsonOutput:
+      - { "description": "A breathtaking view of a mountain range under a clear blue sky. The mountains are covered with patches of snow, and a dense green forest lines the base. A serene lake reflects the sky and mountains, creating a picturesque scene.","tags": [ "mountains","lake","nature","scenery","forest" ],"objectsDetected": [ "mountains","trees","lake","sky" ],"confidence": 98.5 }
+      - { "description": "A busy urban street during daytime, featuring pedestrians crossing the road, cars lined up at a traffic light, and tall modern buildings in the background. A street vendor's cart is visible on the corner.","tags": [ "urban","city","street","pedestrians","traffic" ],"objectsDetected": [ "people","cars","traffic light","buildings","vendor cart" ],"confidence": 95.2 }
+      - { "description": "A close-up shot of a tiger in a jungle. The tiger is crouching in tall grass, its orange and black striped fur blending with the environment. It has an alert expression, with its eyes focused forward.","tags": [ "tiger","wildlife","jungle","grass","predator" ],"objectsDetected": [ "tiger","grass","trees" ],"confidence": 97.8 }
+      - { "description": "A neatly plated dish of spaghetti carbonara garnished with parsley. The pasta is creamy and topped with crispy bacon bits and grated Parmesan cheese. A fork is placed beside the plate on a wooden table.","tags": [ "food","pasta","spaghetti","dining","Italian cuisine" ],"objectsDetected": [ "spaghetti","plate","parsley","fork" ],"confidence": 99.1 }
+      - { "description": "A golden sunset over a calm beach. The sun is partially below the horizon, casting warm orange and pink hues across the sky and reflecting on the water. Silhouettes of palm trees frame the view.","tags": [ "beach","sunset","ocean","palm trees","serene" ],"objectsDetected": [ "sun","water","palm trees","horizon" ],"confidence": 96.4 }
+      - { "description": "A group of five friends posing for a photo in a park. They are smiling and standing close together, with trees and a picnic setup visible in the background. The sunlight is soft, suggesting an early evening setting.","tags": [ "group","friends","park","picnic","outdoors" ],"objectsDetected": [ "people","trees","picnic blanket" ],"confidence": 94.7 }
+      - { "description": "A vibrant abstract painting with swirling patterns of blue, red, and yellow. The colors blend together in dynamic waves, creating a sense of motion and energy.","tags": [ "abstract","art","painting","vibrant","colorful" ],"objectsDetected": [ "patterns","colors" ],"confidence": 89.3 }
+  imageGeneration:
+    models:
+      dall-e-2:
+        defaultWidth: 512
+        defaultHeight: 512
+        maxImages: 10
+        availableQualities: ["standard"]
+        availableSizes: ["256x256", "512x512", "1024x1024"]
+        availableStyles: null
+      dall-e-3:
+        defaultWidth: 1024
+        defaultHeight: 1024
+        maxImages: 1
+        availableQualities: ["standard", "hd"] # do not change... requires code changes
+        availableSizes: ["1024x1024", "1792x1024", "1024x1792"]
+        availableStyles: ["vivid", "natural"]
+    sampleResponseFiles:
+      - "./sample_media/images/image-0.png"
+      - "./sample_media/images/image-1.png"
+      - "./sample_media/images/image-2.png"
+      - "./sample_media/images/image-3.png"
+      - "./sample_media/images/image-4.png"
+      - "./sample_media/images/image-5.png"
+      - "./sample_media/images/image-6.png"
+      - "./sample_media/images/image-7.png"
+    generationFrom: "generated" # 'samples' or 'generated' ... 'generated' generates random image during runtime
+    availableResponseFormats: ["url", "b64_json"] # do not change... requires code changes
+  imageVariations:
+    models:
+      dall-e-2:
+        defaultWidth: 512
+        defaultHeight: 512
+        maxImages: 10
+        availableSizes: [ "256x256", "512x512", "1024x1024" ]
+      dall-e-3:
+        defaultWidth: 1024
+        defaultHeight: 1024
+        maxImages: 1
+        availableSizes: [ "1024x1024", "1792x1024", "1024x1792" ]
+    sampleResponseFiles:
+      - "./sample_media/images/image-0.png"
+      - "./sample_media/images/image-1.png"
+      - "./sample_media/images/image-2.png"
+      - "./sample_media/images/image-3.png"
+      - "./sample_media/images/image-4.png"
+      - "./sample_media/images/image-5.png"
+      - "./sample_media/images/image-6.png"
+      - "./sample_media/images/image-7.png"
+    generationFrom: "generated" # 'samples' or 'generated' ... 'generated' generates random image during runtime
+    availableResponseFormats: ["url", "b64_json"] # do not change... requires code changes
+  imageEdits:
+    models:
+      dall-e-2:
+        defaultWidth: 512
+        defaultHeight: 512
+        maxImages: 10
+        availableSizes: [ "256x256", "512x512", "1024x1024" ]
+    sampleResponseFiles:
+      - "./sample_media/images/image-0.png"
+      - "./sample_media/images/image-1.png"
+      - "./sample_media/images/image-2.png"
+      - "./sample_media/images/image-3.png"
+      - "./sample_media/images/image-4.png"
+      - "./sample_media/images/image-5.png"
+      - "./sample_media/images/image-6.png"
+      - "./sample_media/images/image-7.png"
+    generationFrom: "generated" # 'samples' or 'generated' ... 'generated' generates random image during runtime
+    availableResponseFormats: ["url", "b64_json"] # do not change... requires code changes
+  audioGeneration:
+    models:
+      tts-1:
+        voices:
+          - "alloy"
+          - "ash"
+          - "coral"
+          - "echo"
+          - "fable"
+          - "onyx"
+          - "nova"
+          - "sage"
+          - "shimmer"
+        maxDurationSeconds: 1800
+      tts-1-hd:
+        voices:
+          - "alloy"
+          - "ash"
+          - "coral"
+          - "echo"
+          - "fable"
+          - "onyx"
+          - "nova"
+          - "sage"
+          - "shimmer"
+        maxDurationSeconds: 1800
+    availableResponseFormats: ["mp3", "opus", "aac", "flac", "wav", "pcm"] # do not change... requires code changes
+    allowedSpeedRange: [0.25, 4.0]
+    sampleResponseFiles:
+      - "./sample_media/audio/audio-0.mp3"
+      - "./sample_media/audio/audio-1.mp3"
+      - "./sample_media/audio/audio-2.mp3"
+    generationFrom: "generated" # 'samples' or 'generated' ... 'generated' generates random audio during runtime
+  audioTranscription:
+    models:
+      whisper-1:
+    availableResponseFormats: ["json", "text", "srt", "verbose_json", "vtt"] # do not change... requires code changes
+    allowedTimestampGranularities: ["word", "segment"] # do not change... requires code changes
+    sampleResponses:
+      - "We stand here today, not as individuals, but as a collective voice for progress and equality. The challenges we face are great, but so too is our resolve to overcome them. Together, we can build a future that reflects the best of our shared humanity."
+      - "Four score and seven years ago, our fathers brought forth on this continent a new nation, conceived in liberty and dedicated to the proposition that all men are created equal. It is for us, the living, to be dedicated to the great task remaining before us."
+      - "Ask not what your country can do for you, ask what you can do for your country. Let every nation know that we shall pay any price, bear any burden, meet any hardship, support any friend, oppose any foe, to assure the survival and the success of liberty."
+      - "I have a dream that one day every valley shall be exalted, every hill and mountain shall be made low, and the crooked places will be made straight. This is our hope. This is the faith with which I return to the South."
+      - "The only thing we have to fear is fear itself—nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance. Let us not shrink from our duty but rather face the challenges before us with courage and determination."
+      - "This is not the end. It is not even the beginning of the end. But it is, perhaps, the end of the beginning. The road ahead will be long, and there will be many trials, but we shall prevail through our unity and strength of purpose."
+      - "The time is always right to do what is right. We must act not only for ourselves but for the generations to come. The moral arc of the universe is long, but it bends toward justice when we pull together to make it so."
+      - "To be or not to be, that is the question. Whether it is nobler in the mind to suffer the slings and arrows of outrageous fortune or to take arms against a sea of troubles and, by opposing, end them. This is the dilemma we must all confront at some point."
+      - "In the face of adversity, remember that our greatest strength lies in our ability to adapt and overcome. History has shown time and again that it is not the strongest who survive but those who are most willing to change and grow."
+      - "The journey of a thousand miles begins with a single step. It is not the speed at which we travel but the commitment to keep moving forward that defines our success. Let us begin, one step at a time, toward a brighter tomorrow."
+  audioTranslation:
+    models:
+      whisper-1:
+    availableResponseFormats: ["json", "text", "srt", "verbose_json", "vtt"] # do not change... requires code changes
+    sampleResponses:
+      - "We stand here today, not as individuals, but as a collective voice for progress and equality. The challenges we face are great, but so too is our resolve to overcome them. Together, we can build a future that reflects the best of our shared humanity."
+      - "Four score and seven years ago, our fathers brought forth on this continent a new nation, conceived in liberty and dedicated to the proposition that all men are created equal. It is for us, the living, to be dedicated to the great task remaining before us."
+      - "Ask not what your country can do for you, ask what you can do for your country. Let every nation know that we shall pay any price, bear any burden, meet any hardship, support any friend, oppose any foe, to assure the survival and the success of liberty."
+      - "I have a dream that one day every valley shall be exalted, every hill and mountain shall be made low, and the crooked places will be made straight. This is our hope. This is the faith with which I return to the South."
+      - "The only thing we have to fear is fear itself—nameless, unreasoning, unjustified terror which paralyzes needed efforts to convert retreat into advance. Let us not shrink from our duty but rather face the challenges before us with courage and determination."
+      - "This is not the end. It is not even the beginning of the end. But it is, perhaps, the end of the beginning. The road ahead will be long, and there will be many trials, but we shall prevail through our unity and strength of purpose."
+      - "The time is always right to do what is right. We must act not only for ourselves but for the generations to come. The moral arc of the universe is long, but it bends toward justice when we pull together to make it so."
+      - "To be or not to be, that is the question. Whether it is nobler in the mind to suffer the slings and arrows of outrageous fortune or to take arms against a sea of troubles and, by opposing, end them. This is the dilemma we must all confront at some point."
+      - "In the face of adversity, remember that our greatest strength lies in our ability to adapt and overcome. History has shown time and again that it is not the strongest who survive but those who are most willing to change and grow."
+      - "The journey of a thousand miles begins with a single step. It is not the speed at which we travel but the commitment to keep moving forward that defines our success. Let us begin, one step at a time, toward a brighter tomorrow."
+  embeddings:
+    models:
+      text-embedding-ada-002:
+        maxInputTokens: 8192  # corresponds to number of words in mock
+    maxDimensions: 2048
+    availableEncodingFormats: ['float', 'base64'] # do not change... requires code changes
