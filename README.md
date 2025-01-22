@@ -59,7 +59,19 @@ This configuration file defines server settings, model configurations, and suppo
 ### Understanding tool use
 1. Unlike other sample responses, the tool use requires one small extra step.
 2. You just need to declare the regex that will be used to match the prompt when tool use is requested.
-3. See `modelConfigs -> chat -> tools` for examples (they are simple enough).
+3. See `modelConfigs -> chat -> tools` in `config.yaml` for examples (they are simple enough). Sample:
+```yaml
+    tools:
+       functions:
+          - functionName: "calculate_sum"
+            arguments: { "a": 10, "b": 20 }
+            regexToMatchAgainstPrompt: |
+               .*sum.*
+          - functionName: "fetch_weather"
+            arguments: { "location": "Boston, MA", "unit": "imperial" }
+            regexToMatchAgainstPrompt: |
+               .*weather.* 
+```
 
 ### Understanding Sample Responses
 1. Except for `/embeddings` endpoint, all other endpoints allow specifying sample responses in config.yaml.
