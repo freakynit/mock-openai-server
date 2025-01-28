@@ -78,7 +78,7 @@ modelConfigs:
         defaultWidth: 512
         defaultHeight: 512
         maxImages: 10
-        availableQualities: ["standard"]
+        availableQualities: ["standard"] # do not change... requires code changes (also, dall-e-2 only supports 'standard')
         availableSizes: ["256x256", "512x512", "1024x1024"]
         availableStyles: null
       dall-e-3:

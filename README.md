@@ -76,7 +76,7 @@ This configuration file defines server settings, model configurations, and suppo
 ### Understanding Sample Responses
 1. Except for `/embeddings` endpoint, all other endpoints allow specifying sample responses in config.yaml.
 2. For `/embeddings`, responses are always generated on the fly. But, the server makes sure to generate same tokens for the same given input.
-3. Media endpoints: `/audio/speec` and `/images/{generations,variations,edits}` also support generating media dynamically. Use `generationFrom: generated` for these if needed.
+3. Media endpoints: `/audio/speech` and `/images/{generations,variations,edits}` also support generating media dynamically. Use `generationFrom: generated` for these if needed.
 4. `/models` endpoint simply traverses all models listed in config.yaml across different modalities and returns them.
 5. For adding new response strategies, look into relevant source files under `src/generators` path. You just need to implement one simple method for all except `/chat`, which needs two methods.
 
