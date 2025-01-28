@@ -84,3 +84,10 @@ This configuration file defines server settings, model configurations, and suppo
 1. When using dynamically generated media, these files are generated in `src/public` (more precisely: `src/${publicFilesDirectory}`) by default and are NOT cleaned.
 2. Do not forget to put `/v1` in your client SDK's or apps when configuring mock server endpoint.
 3. Code requires some good refactoring... inputs and contributions are welcome.
+
+### Building and running docker image
+> Make sure to keep port same as what's mentioned in config.yaml
+```shell
+docker build -t mock-openai-server --build-arg PORT=8080 .
+docker run -p 8080:8080 mock-openai-server
+```
